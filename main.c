@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:22:07 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/13 12:01:38 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:38:39 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void draw_fractals(void *fract)
 			{
 				ft_mandelbrot(fract);
 			}
-			// else if (ft_strncmp(fractol->name , "julia", 5) == 0)
-			// {
-			// 	//julia();
-			// }
+			else if (ft_strncmp(fractol->name , "julia", 5) == 0)
+			{
+				ft_julia(fract);
+			}
 			else 
 				exit(1);
 			
@@ -133,12 +133,9 @@ int main(int ac , char **av)
 		{
 			fract->Cx = ft_atoi(av[2]);
 			fract->Cy = ft_atoi(av[3]);
-			// printf("%f\n",fract->Cx );
-			// printf("%f\n",fract->Cy );
 		}
 		fract->name = av[1];
-		// printf("%s\n",fract->name);
-		// printf("%s\n",av[1]);
+		init_var(fract);
 		fract->mlx = mlx_init(SIZE,SIZE, "fract-ol", false);
 		fract->image = mlx_new_image(fract ->mlx ,SIZE, SIZE);
 		mlx_image_to_window(fract->mlx, fract->image, 0, 0);

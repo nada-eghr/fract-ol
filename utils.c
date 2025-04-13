@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:25:35 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/13 11:56:43 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:34:03 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,10 @@ double	ft_atoi(char *str)
 // 	char *str2 = "	 -34";
 // 	printf("%d\n",atoi(str2) );
 // }
+void init_var(t_fractol *fract)
+{
+	fract->zoom = 300;
+	fract->offset_x = 1.8; 
+	fract->offset_y = 1.3;
+	
+}
