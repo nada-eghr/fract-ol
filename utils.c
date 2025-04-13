@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:25:35 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/12 13:14:49 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/13 11:56:43 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	d = (unsigned char *)s1;
 	s = (unsigned char *)s2;
 	i = 0;
+	// if(!d || !s)
+	// 	return 0;
 	while ((d[i] || s[i]) && i < n)
 	{
 		if (d[i] != s[i])

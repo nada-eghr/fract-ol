@@ -6,12 +6,121 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:22:07 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/12 16:31:04 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/13 12:01:38 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+void draw_fractals(void *fract)
+{
+	t_fractol *fractol;
 
+	fractol = (t_fractol *)fract;
+	fractol->x = 0;
+	while( fractol->x < SIZE)
+	{
+		fractol->y = 0;
+		while( fractol->y <  SIZE)
+		{
+			
+			mlx_put_pixel(fractol->image, fractol->x, fractol->y, 0x4484bd);
+			if (ft_strncmp(fractol->name , "mandelbrot", 10) == 0)
+			{
+				ft_mandelbrot(fract);
+			}
+			// else if (ft_strncmp(fractol->name , "julia", 5) == 0)
+			// {
+			// 	//julia();
+			// }
+			else 
+				exit(1);
+			
+			// mandelbrot
+			
+			// julia
+			(fractol->y)++;
+		}
+		(fractol->x)++;
+	}
+}
+	
+
+	
+	// while ( x < 400 && y >= 150)
+	// {
+	// 	mlx_put_pixel(fractol->image, x, y, 0xFF00F0);
+	// 	x++;
+	// 	y--;
+	// }
+		// 	int y = 320;
+		// 	while( y>= 200)
+		// 	{
+		// 		mlx_put_pixel(fractol->image, 250, 250, 0xFF00F0);
+		// 		y--;
+		// 	}
+		// x++;	
+		// }
+
+		// mlx_put_pixel(fractol->image, 250, 250, 0xFF00F0);
+		// mlx_put_pixel(fractol->image, 420, 100, 0xFF00F0);
+	
+	// int x = 0 ;
+	// while ( x < 250)
+	// {
+		
+		
+	// 	mlx_put_pixel(fractol->image, x, 250, 0xFF00F0);
+	// 	x++;
+		
+	// }
+	//  x = 0 ;
+	// while ( x < 250)
+	// {
+		
+	// 	mlx_put_pixel(fractol->image, x, 251, 0xFF00F0);
+	// 	x++;
+		
+	// }
+	
+
+
+
+// void ft_put_pixel(t_fractol *fractol, int x, int y, int color)
+// {	
+// 	 x = 0;
+// 	while ( x < 250)
+// 	{
+// 		y = 0;
+// 		while ( y < 2)
+// 		{
+// 			mlx_put_pixel(fractol->image, x, y, 0xFF00F0);
+// 			y++;
+// 		}
+// 		x++;
+// 	}
+		
+	
+
+
+	
+	// while ( y <= 250)
+	// {
+	// 	int  x = 0;
+	// 	while ( x <= 250)
+	// 	{
+	// 		mlx_put_pixel(fractol->image, x, y, 0xFF00F0);
+	// 		x++;
+	// 	}
+	// 	y++;
+	 	
+		
+	// }
+	
+		
+	
+	
+		
+	// }
 int main(int ac , char **av)
 {
 	int i = 0;
@@ -27,10 +136,16 @@ int main(int ac , char **av)
 			// printf("%f\n",fract->Cx );
 			// printf("%f\n",fract->Cy );
 		}
-		fract->name = av[2];
+		fract->name = av[1];
+		// printf("%s\n",fract->name);
+		// printf("%s\n",av[1]);
 		fract->mlx = mlx_init(SIZE,SIZE, "fract-ol", false);
 		fract->image = mlx_new_image(fract ->mlx ,SIZE, SIZE);
 		mlx_image_to_window(fract->mlx, fract->image, 0, 0);
+		mlx_loop_hook(fract->mlx, draw_fractals, fract);
+		mlx_loop(fract->mlx);
+		
+		
 	}
 	else
 		exit(1);

@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:14:45 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/12 16:32:53 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/13 13:10:47 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,22 @@ typedef struct s_fractol {
 	double Cy;
 	int x;
 	int y;
+	double zoom;
+	double offset_x;
+	double offset_y;
 	char *name;
+	int iteration;
 	mlx_t* mlx;
 	mlx_image_t *image;
 	
 }t_fractol;
 
-// utils
+//--------------------- utils -----------------------
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 double	ft_atoi(char *str);
 
+//-------------------- mandelbrot --------------------
+void ft_mandelbrot(t_fractol *fract);
+
+
+//-------------------- julia -------------------------
