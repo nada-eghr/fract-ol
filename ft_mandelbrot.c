@@ -6,11 +6,12 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 11:25:21 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/13 15:42:04 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/13 20:39:19 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fractol.h"
+
 
 void ft_mandelbrot(t_fractol *fract)
 {
@@ -31,8 +32,14 @@ void ft_mandelbrot(t_fractol *fract)
 			break;
 	}
 	if(i == fract->iteration)
-		mlx_put_pixel(fract->image, fract->x, fract->y, 0x00FF00);
-	else 
-		mlx_put_pixel(fract->image, fract->x, fract->y, 0x4484bd);
+		mlx_put_pixel(fract->image, fract->x, fract->y, 0x000000ff);
+	else
+	{
+		uint8_t r = ((float)(0x49) * ((float)i / (fract->iteration / 10)));
+		uint8_t g = ((float)(0x2e) * ((float)i / (fract->iteration / 10)));
+		uint8_t b = ((float)(0x5e) * ((float)i / (fract->iteration / 10)));
+		mlx_put_pixel(fract->image, fract->x, fract->y, r << 24 | g << 16 | b << 8 | 0xff);
+	}
+
 }
 	

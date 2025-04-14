@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:22:07 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/13 15:38:39 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/13 20:23:39 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void draw_fractals(void *fract)
 		while( fractol->y <  SIZE)
 		{
 			
-			mlx_put_pixel(fractol->image, fractol->x, fractol->y, 0x4484bd);
+			// mlx_put_pixel(fractol->image, fractol->x, fractol->y, 0x4484bdff);
 			if (ft_strncmp(fractol->name , "mandelbrot", 10) == 0)
 			{
 				ft_mandelbrot(fract);
