@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:14:45 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 12:01:02 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/15 18:06:54 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,16 @@ void			init_var(t_fractol *fract);
 int				get_rgba(int r, int g, int b, int a);
 int				get_rg_l(int r, int g, int b, t_fractol *fract);
 int				get_rg_julia(int r, int g, int b, t_fractol *fract);
+void			ft_putendl_fd(char *s, int fd);
+//--------------------utils1------------------------
+int				exit_fractal(t_fractol *fractal);
+void			ft_error(void);
 
 //--------------------utils2 ------------------------
-int 			ft_strlen(char *str);
-double			ft_atoi(char *s);
+int				ft_strlen(char *str);
 int				ft_strcmp(char *s1, char *s2);
+void			f_error(char *msg);
+double			ft_atoi(char *s);
 
 //-------------------- mandelbrot --------------------
 void			ft_mandelbrot(t_fractol *fract);
@@ -58,8 +63,5 @@ void			ft_mandelbrot(t_fractol *fract);
 void			ft_julia(t_fractol *fract);
 
 //--------------main--------------------
-void	ft_error(void);
-void	ft_putendl_fd(char *s, int fd);
-int	exit_fractal(t_fractol *fractal);
-void	draw_fractals(void *fract);
-void	my_scrollhook(double xdelta, double ydelta, void *param);
+void			draw_fractals(void *fract);
+void			my_scrollhook(double xdelta, double ydelta, void *param);

@@ -9,7 +9,7 @@ CC		= cc
 CFLAGS	= -Wall -Werror -Wextra -O3 -ffast-math -fsanitize=address -g
 
 MOBJS	= ${SRCS:%.c=%.o}
-SRCS	=  main.c  ft_julia.c   ft_mandelbrot.c  utils.c utils2.c 
+SRCS	=  main.c  ft_julia.c   ft_mandelbrot.c  utils.c utils1.c utils2.c 
 
 all: $(NAME)
 

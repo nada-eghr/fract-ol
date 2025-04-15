@@ -6,21 +6,22 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 17:31:26 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 17:03:31 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/15 18:11:12 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i ;
+	int	i;
 
-	i  = 0;
+	i = 0;
 	while (str[i])
 		i++;
-	return i;
+	return (i);
 }
+
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
@@ -30,6 +31,7 @@ int	ft_strcmp(char *s1, char *s2)
 		i++;
 	return (s1[i] - s2[i]);
 }
+
 void	f_error(char *msg)
 {
 	ft_putendl_fd(msg, 2);
@@ -45,7 +47,7 @@ static double	handl_atoi(char *s)
 	pow = 1;
 	if ('.' == *s)
 		++s;
-	if(*s == '\0')
+	if (*s == '\0')
 		f_error("Error");
 	while (*s)
 	{

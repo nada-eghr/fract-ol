@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:22:07 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 16:56:51 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/15 18:08:02 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,6 @@
 // void leaks(){
 // 	system("leaks fractol");
 // }
-
-int	exit_fractal(t_fractol *fractal)
-{
-	mlx_delete_image(fractal->mlx,fractal->image);
-	mlx_close_window(fractal->mlx);
-	free(fractal);
-	exit(0);
-	return (0);
-}
-
-void	ft_error(void)
-{
-	ft_putendl_fd("Usage: ./fractol <fractal>", 1);
-	ft_putendl_fd("Available fractals: mandelbrot, julia", 1);
-	exit(1);
-}
 
 void	draw_fractals(void *fract)
 {
@@ -81,6 +65,7 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 		fract->color_2 /= 10;
 	if (keydata.key == MLX_KEY_K && keydata.action == MLX_PRESS)
 		init_var(fract);
+	// draw_fractals(fract);
 }
 
 void	my_scrollhook(double xdelta, double ydelta, void *param)
@@ -96,7 +81,8 @@ void	my_scrollhook(double xdelta, double ydelta, void *param)
 	else if (ydelta < 0)
 		fractal->zoom = fractal->zoom / zoom_level;
 }
-void ft_check(char **str,t_fractol *fractal)
+
+void	ft_check(char **str, t_fractol *fractal)
 {
 	fractal->cx = ft_atoi(str[2]);
 	fractal->cy = ft_atoi(str[3]);
@@ -113,11 +99,11 @@ int	main(int ac, char **av)
 	{
 		fract = malloc(sizeof(t_fractol));
 		if (ac == 4)
-			ft_check(av,fract);
+			ft_check(av, fract);
 		fract->name = av[1];
 		init_var(fract);
 		fract->mlx = mlx_init(SIZE_H, SIZE_W, "fract-ol", true);
-		if(!fract->mlx)
+		if (!fract->mlx)
 			exit(EXIT_FAILURE);
 		fract->image = mlx_new_image(fract->mlx, SIZE_W, SIZE_H);
 		mlx_image_to_window(fract->mlx, fract->image, 0, 0);
