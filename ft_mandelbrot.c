@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 11:25:21 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 18:52:03 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:04:47 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_mandelbrot(t_fractol *fract)
 	fract->zy = 0;
 	fract->cx = ((fract->x / fract->zoom) - fract->offset_x);
 	fract->cy = ((fract->y / fract->zoom) - fract->offset_y);
+
 	i = 0;
 	while (++i < fract->iteration)
 	{

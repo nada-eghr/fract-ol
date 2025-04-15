@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:25:35 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 18:10:09 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/15 18:59:20 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ void	init_var(t_fractol *fract)
 	fract->offset_x = 1.9;
 	fract->offset_y = 1.5;
 	fract->color = get_rgba(0x05, 0x01, 0x01, 0xff);
+	//fract->color_2 = get_rg_l(0x49, 0x2e, 0x5e, fract);
+	fract->r = 0x49;
+	fract->g = 0x2e;
+	fract->g = 0x5e;
 }
 
 int	get_rgba(int r, int g, int b, int a)
