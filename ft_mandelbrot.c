@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 11:25:21 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/14 13:27:45 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/15 12:24:37 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ void	ft_mandelbrot(t_fractol *fract)
 	double	tmp;
 	int		i;
 
-	fract->Zx = 0;
-	fract->Zy = 0;
-	fract->Cx = ((fract->x / fract->zoom) - fract->offset_x);
-	fract->Cy = ((fract->y / fract->zoom) - fract->offset_y);
+	fract->zx = 0;
+	fract->zy = 0;
+	fract->cx = ((fract->x / fract->zoom) - fract->offset_x);
+	fract->cy = ((fract->y / fract->zoom) - fract->offset_y);
 	i = 0;
 	while (++i < fract->iteration)
 	{
-		tmp = fract->Zx;
-		fract->Zx = (fract->Zx * fract->Zx) - (fract->Zy * fract->Zy)
-			+ fract->Cx;
-		fract->Zy = 2 * tmp * fract->Zy + fract->Cy;
-		if ((fract->Zx * fract->Zx) + (fract->Zy * fract->Zy) > 4)
+		tmp = fract->zx;
+		fract->zx = (fract->zx * fract->zx) - (fract->zy * fract->zy)
+			+ fract->cx;
+		fract->zy = 2 * tmp * fract->zy + fract->cy;
+		if ((fract->zx * fract->zx) + (fract->zy * fract->zy) > 4)
 			break ;
 	}
 	fract->i = i;
