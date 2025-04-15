@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:22:07 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 18:31:58 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/15 20:45:21 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 void	draw_fractals(void *fract)
 {
 	t_fractol	*fractol;
-
+	
 	fractol = (t_fractol *)fract;
 	fractol->x = 0;
 	while (fractol->x < SIZE_W)
@@ -62,7 +62,7 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_Z && keydata.action == MLX_PRESS)
 		fract->iteration -= 10;
 	if (keydata.key == MLX_KEY_X && keydata.action == MLX_PRESS)
-		fract->color_2 /= 10;
+		((void)fract, fract->r += 5, fract->g += 5, fract->b += 5);
 	if (keydata.key == MLX_KEY_K && keydata.action == MLX_PRESS)
 		init_var(fract);
 	draw_fractals(fract);
