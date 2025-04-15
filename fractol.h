@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:14:45 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 18:06:54 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/15 18:51:16 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct s_fractol
 	int			j;
 	int			color;
 	int			color_2;
+	uint32_t	r ;
+	uint32_t	g ;
+	uint32_t 	b ;
 	double		zoom;
 	double		offset_x;
 	double		offset_y;

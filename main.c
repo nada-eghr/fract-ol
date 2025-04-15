@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:22:07 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 18:08:02 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/15 18:31:58 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 		fract->color_2 /= 10;
 	if (keydata.key == MLX_KEY_K && keydata.action == MLX_PRESS)
 		init_var(fract);
-	// draw_fractals(fract);
+	draw_fractals(fract);
 }
 
 void	my_scrollhook(double xdelta, double ydelta, void *param)

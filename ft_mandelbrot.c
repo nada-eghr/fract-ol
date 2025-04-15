@@ -6,7 +6,7 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 11:25:21 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 12:24:37 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/15 18:52:03 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	ft_mandelbrot(t_fractol *fract)
 		mlx_put_pixel(fract->image, fract->x, fract->y, fract->color);
 	else
 	{
-		fract->color_2 = get_rg_l(0x49, 0x2e, 0x5e, fract);
+		//fract->color_2 = get_rg_l(0x49, 0x2e, 0x5e, fract);
+		fract->color_2 = get_rg_l(fract->r , fract->g , fract->b , fract);
 		mlx_put_pixel(fract->image, fract->x, fract->y, fract->color_2);
 	}
 }
