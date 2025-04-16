@@ -6,12 +6,11 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:22:07 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 20:45:21 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:11:51 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MLX42/include/MLX42/MLX42.h"
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 // void leaks(){
 // 	system("leaks fractol");
@@ -20,7 +19,7 @@
 void	draw_fractals(void *fract)
 {
 	t_fractol	*fractol;
-	
+
 	fractol = (t_fractol *)fract;
 	fractol->x = 0;
 	while (fractol->x < SIZE_W)
@@ -62,10 +61,9 @@ void	my_keyhook(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_Z && keydata.action == MLX_PRESS)
 		fract->iteration -= 10;
 	if (keydata.key == MLX_KEY_X && keydata.action == MLX_PRESS)
-		((void)fract, fract->r += 5, fract->g += 5, fract->b += 5);
+		((void)fract, fract->r += 50, fract->g += 20, fract->b += 20);
 	if (keydata.key == MLX_KEY_K && keydata.action == MLX_PRESS)
 		init_var(fract);
-	draw_fractals(fract);
 }
 
 void	my_scrollhook(double xdelta, double ydelta, void *param)

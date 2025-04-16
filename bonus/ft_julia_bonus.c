@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_julia.c                                         :+:      :+:    :+:   */
+/*   ft_julia_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 15:36:43 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/14 17:06:37 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:05:00 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	ft_julia(t_fractol *fract)
 {
 	double	tmp;
-	int		color;
+	int		color ;
 	int		i;
 
 	fract->zx = ((fract->x / fract->zoom) - fract->offset_x);
@@ -35,14 +35,7 @@ void	ft_julia(t_fractol *fract)
 		mlx_put_pixel(fract->image, fract->x, fract->y, fract->color);
 	else
 	{
-		color = get_rg_julia(0x49, 0x2e, 0x5e, fract);
+		color = get_rg_julia(fract->r, fract->g, fract->b, fract);
 		mlx_put_pixel(fract->image, fract->x, fract->y, color);
 	}
 }
-
-// uint8_t r = (0x05);
-// uint8_t g = (0x01);
-// uint8_t b = (0x01);
-// uint8_t r = ((float)(0x72) * ((float)i / (fract->iteration / 10)));
-// uint8_t g = ((float)(0xb5) * ((float)i / (fract->iteration / 10)));
-// uint8_t b = ((float)(0x48) * ((float)i / (fract->iteration / 10)));

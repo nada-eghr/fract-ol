@@ -6,17 +6,20 @@
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:14:45 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 18:51:16 by naessgui         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:13:35 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MLX42/include/MLX42/MLX42.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
-#define SIZE_H 800
-#define SIZE_W 800
+# include "../MLX42/include/MLX42/MLX42.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+# define SIZE_H 800
+# define SIZE_W 800
 
 typedef struct s_fractol
 {
@@ -30,9 +33,9 @@ typedef struct s_fractol
 	int			j;
 	int			color;
 	int			color_2;
-	uint32_t	r ;
-	uint32_t	g ;
-	uint32_t 	b ;
+	uint32_t	r;
+	uint32_t	g;
+	uint32_t	b;
 	double		zoom;
 	double		offset_x;
 	double		offset_y;
@@ -68,3 +71,5 @@ void			ft_julia(t_fractol *fract);
 //--------------main--------------------
 void			draw_fractals(void *fract);
 void			my_scrollhook(double xdelta, double ydelta, void *param);
+
+#endif

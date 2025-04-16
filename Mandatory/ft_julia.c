@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_julia.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naessgui <naessgui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/13 11:25:21 by naessgui          #+#    #+#             */
-/*   Updated: 2025/04/15 20:06:20 by naessgui         ###   ########.fr       */
+/*   Created: 2025/04/13 15:36:43 by naessgui          #+#    #+#             */
+/*   Updated: 2025/04/16 09:33:45 by naessgui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_mandelbrot(t_fractol *fract)
+void	ft_julia(t_fractol *fract)
 {
 	double	tmp;
+	int		color;
 	int		i;
 
-	fract->zx = 0;
-	fract->zy = 0;
-	fract->cx = ((fract->x / fract->zoom) - fract->offset_x);
-	fract->cy = ((fract->y / fract->zoom) - fract->offset_y);
-
+	fract->zx = ((fract->x / fract->zoom) - fract->offset_x);
+	fract->zy = ((fract->y / fract->zoom) - fract->offset_y);
 	i = 0;
 	while (++i < fract->iteration)
 	{
@@ -32,12 +30,12 @@ void	ft_mandelbrot(t_fractol *fract)
 		if ((fract->zx * fract->zx) + (fract->zy * fract->zy) > 4)
 			break ;
 	}
-	fract->i = i;
+	fract->j = i;
 	if (i == fract->iteration)
 		mlx_put_pixel(fract->image, fract->x, fract->y, fract->color);
 	else
 	{
-		fract->color_2 = get_rg_l(fract->r , fract->g , fract->b , fract);
-		mlx_put_pixel(fract->image, fract->x, fract->y, fract->color_2);
+		color = get_rg_julia(0x49, 0x2e, 0x5e, fract);
+		mlx_put_pixel(fract->image, fract->x, fract->y, color);
 	}
 }
